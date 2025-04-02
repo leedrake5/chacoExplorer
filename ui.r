@@ -38,7 +38,7 @@ navbarPage("Chaco Isotope Database", id="nav",
 
         tags$hr(),
 
-        selectInput("color", "Color", varsColor, selected="Sample Type"),
+        selectInput("color", "Map Point Color", varsColor, selected="Sample Type"),
         #selectInput("size", "Size", varsSize, selected = "income"),
         conditionalPanel("input.color == 'superzip' || input.size == 'superzip'",
           # Only prompt for threshold when coloring or sizing by superzip
@@ -46,9 +46,9 @@ navbarPage("Chaco Isotope Database", id="nav",
         ),
 
         #plotOutput("histCentile", height = 200),
-        checkboxInput("uselabs", "Legend", value=FALSE),
         uiOutput("isodensselectui"),
-        plotOutput("isoDens", height = 250)
+        plotOutput("isoDens", height = 250),
+        checkboxInput("uselabs", "Site Legend", value=FALSE)
       ),
 
       tags$div(id="cite",
