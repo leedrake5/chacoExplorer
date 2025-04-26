@@ -51,16 +51,16 @@ utmcoor<- st_as_sf(data_convert_12, coords = c("Easting", "Northing"), crs = pas
 # converting
 longlatcoor <- st_transform(utmcoor, crs = 4326)  # EPSG:4326 is the WGS84 coordinate system
 coords <- st_coordinates(longlatcoor)
-data_convert_12$Longitude <- coords[,1]
-data_convert_12$Latitude <- coords[,2]
+data_convert_12$Longitude <- round(coords[,1], 3)
+data_convert_12$Latitude <- round(coords[,2], 3)
 
 utmcoor<- st_as_sf(data_convert_13, coords = c("Easting", "Northing"), crs = paste0("+proj=utm +zone=13"))
 #zone= UTM zone
 # converting
 longlatcoor <- st_transform(utmcoor, crs = 4326)  # EPSG:4326 is the WGS84 coordinate system
 coords <- st_coordinates(longlatcoor)
-data_convert_13$Longitude <- coords[,1]
-data_convert_13$Latitude <- coords[,2]
+data_convert_13$Longitude <- round(coords[,1], 3)
+data_convert_13$Latitude <- round(coords[,2], 3)
 
 data <- as.data.frame(data.table::rbindlist(list(data, data_convert_12, data_convert_13), fill=T, use.names=T))
 

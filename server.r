@@ -248,7 +248,7 @@ function(input, output, session) {
   
   
   output$downloaddata <- downloadHandler(
-  filename = function() { paste("chacoData", '.csv', sep=',') },
+  filename = function() { paste("chacoData", '.csv', sep='') },
   content = function(file
   ) {
       write.csv(reactiveZip(), file)
